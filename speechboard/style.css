@@ -60,7 +60,6 @@ body {
 input {
 	height: 15%;
 	margin: 1px 0px 0px 0px;
-	position: absolute;
 }
 
 @media screen and (min-width : 924px) {

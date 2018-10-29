@@ -12,9 +12,6 @@ function dictation() {
 		}
 
 		function _handleSuccess(evt) {
-			document.getElementById('dic_start').play();
-			document.getElementById('speak_switch').style.display = "none";
-			document.getElementById('msg').textContent = "";
 
 			var recognition = new webkitSpeechRecognition(),
 			msg         = doc.getElementById("msg");
@@ -22,7 +19,8 @@ function dictation() {
 			recognition.lang = "ja";
 
 			recognition.addEventListener("start", function() {
-
+				document.getElementById('dic_start').play();
+				document.getElementById('msg').textContent = "";
 			});
 
 			recognition.addEventListener("result", function(evt) {
@@ -32,13 +30,11 @@ function dictation() {
 					msg.innerText += evt.results[0][0].transcript;
 					msg.innerHTML += "<br />";
 					document.getElementById('dic_stop').play();
-					document.getElementById('speak_switch').style.display = "inline";
 				}
 			}, false);
 
 			recognition.addEventListener("end", function() {
 				document.getElementById('dic_stop').play();
-				document.getElementById('speak_switch').style.display = "inline";
 			});
 
 			recognition.start();
