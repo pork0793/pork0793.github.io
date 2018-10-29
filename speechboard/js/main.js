@@ -17,7 +17,7 @@ window.onload = function check() {
 }
 
 
-function dic() {
+document.getElementById("speak").onclick = function dic() {
 	(function(win, doc) {
 		var recognition = new webkitSpeechRecognition(),
 		msg         = doc.getElementById("msg");
