@@ -1,6 +1,8 @@
 function dictation() {
 	(function(win, doc) {
 
+		"use strict";
+
 		navigator.getUserMedia({
 			audio: true
 		}, _handleSuccess, _handleError);
@@ -13,14 +15,11 @@ function dictation() {
 
 		function _handleError() {
 			alert("マイクの使用を許可してください。");
-			exit;
 		}
 
 		document.getElementById('dic_start').play();
 		document.getElementById('speak_switch').style.display = "none";
 		document.getElementById('msg').textContent = "";
-
-		"use strict";
 
 		var recognition = new webkitSpeechRecognition(),
 		msg         = doc.getElementById("msg");
