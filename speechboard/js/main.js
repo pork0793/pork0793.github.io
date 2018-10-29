@@ -1,6 +1,21 @@
 function dictation() {
 	(function(win, doc) {
 
+		navigator.getUserMedia({
+			audio: true
+		}, _handleSuccess, _handleError);
+
+		function _handleSuccess(evt) {
+			btn.addEventListener("click", () => {
+		  		_handleClick(evt);
+			}, false);
+		}
+
+		function _handleError() {
+			alert("マイクの使用を許可してください。");
+			exit;
+		}
+
 		document.getElementById('dic_start').play();
 		document.getElementById('speak_switch').style.display = "none";
 		document.getElementById('msg').textContent = "";
