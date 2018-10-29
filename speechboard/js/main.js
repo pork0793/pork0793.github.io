@@ -1,44 +1,44 @@
-function dictation() {
+window.onload = function check() {
+
+	"use strict";
+
+	navigator.getUserMedia({
+		audio: true
+	}, _handleSuccess, _handleError);
+
+	function _handleSuccess() {
+
+	}
+
+	function _handleError() {
+		alert("マイクの使用を許可してください。");
+	}
+
+}
+
+
+function dic() {
 	(function(win, doc) {
+		var recognition = new webkitSpeechRecognition(),
+		msg         = doc.getElementById("msg");
 
-		"use strict";
+		recognition.lang = "ja";
 
-		navigator.getUserMedia({
-			audio: true
-		}, _handleSuccess, _handleError);
+		recognition.addEventListener("start", function() {
+			document.getElementById('dic').play();
+			document.getElementById('msg').textContent = "";
+		});
 
-		function _handleError() {
-			alert("マイクの使用を許可してください。");
-		}
+		recognition.addEventListener("result", function(evt) {
+			var txt = evt.results[0][0].transcript;
 
-		function _handleSuccess(evt) {
+			if (txt) {
+				msg.innerText += evt.results[0][0].transcript;
+				msg.innerHTML += "<br />";
+				document.getElementById('dic').play();
+			}
+		}, false);
 
-			var recognition = new webkitSpeechRecognition(),
-			msg         = doc.getElementById("msg");
-
-			recognition.lang = "ja";
-
-			recognition.addEventListener("start", function() {
-				document.getElementById('dic_start').play();
-				document.getElementById('msg').textContent = "";
-			});
-
-			recognition.addEventListener("result", function(evt) {
-				var txt = evt.results[0][0].transcript;
-
-				if (txt) {
-					msg.innerText += evt.results[0][0].transcript;
-					msg.innerHTML += "<br />";
-					document.getElementById('dic_stop').play();
-				}
-			}, false);
-
-			recognition.addEventListener("end", function() {
-				document.getElementById('dic_stop').play();
-			});
-
-			recognition.start();
-		}
-
+		recognition.start();
 	})(this, document);
 }
