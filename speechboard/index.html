@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Speech Board</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta name="viewport" content="width=device-width,user-scalable=yes,maximum-scale=2" />
+	</head>
+
+	<body>
+		<audio id="dic_start" preload="auto">
+			<source src="./contents/dic_start.mp3" type="audio/mp3">
+		</audio>
+		<audio id="dic_stop" preload="auto">
+			<source src="./contents/dic_stop.mp3" type="audio/mp3">
+		</audio>
+		
+		<div class="area">
+			<div id="msg" contenteditable="true"></div>
+		</div>
+		<script src="./js/main.js"></script>
+		<center>
+			<input type="image" onClick="dictation();" style="z-index: 1;" src="./contents/speak_off.jpg" value="録音開始" id="speak_switch">
+			<input type="image" src="./contents/speak_on.jpg">
+		</center>
+	</body>
+</html>
