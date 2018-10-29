@@ -19,14 +19,16 @@ window.onload = function check() {
 
 function dic() {
 	(function(win, doc) {
+
+		document.getElementById('dic').play();
+		document.getElementById('msg').textContent = "";
+
 		var recognition = new webkitSpeechRecognition(),
 		msg         = doc.getElementById("msg");
 
 		recognition.lang = "ja";
 
 		recognition.addEventListener("start", function() {
-			document.getElementById('dic').play();
-			document.getElementById('msg').textContent = "";
 		});
 
 		recognition.addEventListener("result", function(evt) {

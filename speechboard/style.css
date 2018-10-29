@@ -57,8 +57,8 @@ body {
 	overflow: scroll;
 }
 
-img {
-	height: 60px;
+input {
+	height: 15%;
 	margin: 1px 0px 0px 0px;
 }
 
