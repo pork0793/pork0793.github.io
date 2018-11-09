@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Na: trium Project</title>
+	<meta charset="utf-8">
+	<meta name="description" content="「Na:trium Works」のページです。 Spigotプラグインの配布などを行っています。">
+	<meta name="author" content="Nazuna">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="f-view">
+		<div class="bg">
+			<h1>Na: trium Project</h1>
+			<h2 data-chaffle="en">[ Na Project # Coming soon... ]</h2>
+
+			<script src="https://unpkg.com/chaffle/chaffle.min.js"></script>
+			<script>
+				var elements = document.querySelectorAll('[data-chaffle]');
+				Array.prototype.forEach.call(elements, function (el) {
+				var chaffle = new Chaffle(el, {
+					  speed: 20,
+					  delay: 100,
+				});
+				chaffle.init();
+				});
+			</script>
+			<svg class="arrows">
+				<path class="a1" d="M0 0 L30 32 L60 0"></path>
+				<path class="a2" d="M0 20 L30 52 L60 20"></path>
+				<path class="a3" d="M0 40 L30 72 L60 40"></path>
+			</svg>
+		</div>
+<!-- 		<header>
+			<img src="" />
+			<ul>
+				<li>aa</li>
+			</ul>
+		</header> -->
+	</div>
+</body>
+</html>
